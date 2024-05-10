@@ -23,6 +23,15 @@ export class User {
   age: number;
 
   @Column()
+  weight: string;
+
+  @Column()
+  height: string;
+
+  @Column()
+  bmi: number;
+
+  @Column()
   password: string;
 
   @Column({ default: '/uploads/avatar.png' })

@@ -50,4 +50,10 @@ export class AuthenticationController {
   profile(@Request() req, @Body() payload: UpdateProfileDto) {
     return this.authService.update(req, payload);
   }
+
+  @Get('get-me')
+  @ApiBearerAuth('JWT-auth')
+  getMe(@Request() req) {
+    return this.authService.getMe(req);
+  }
 }

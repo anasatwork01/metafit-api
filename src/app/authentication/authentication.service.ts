@@ -177,4 +177,12 @@ export class AuthenticationService {
     }
     throw new HttpException(AUTH_MESSAGES.NOT_FOUND, HttpStatus.BAD_REQUEST);
   }
+
+  async getMe(req) {
+    const user = await this.userRepo.findOne({
+      where: { _id: new ObjectId(req.user.id) },
+    });
+    const { password, ...rest } = user;
+    return rest;
+  }
 }
